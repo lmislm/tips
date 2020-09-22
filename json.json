@@ -1,0 +1,7 @@
+{
+  "operationName": "getOrderCount",
+  "variables": {
+    "orderQueryCountInput": {}
+  },
+  "query": "query getOrderCount($orderQueryCountInput: OrderQueryCountInput!) {\n  getOrderCount(orderQueryCountInput: $orderQueryCountInput) {\n    waitPayNums\n    waitSendNums\n    waitReceiveNums\n    completeNums\n    cancelAllNums\n    __typename\n  }\n}\n"
+}

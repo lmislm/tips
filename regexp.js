@@ -24,3 +24,13 @@ function f(d) {
 }
 
 console.log(f(a))
+
+// 只保留数字和字母
+const a = '_fasdfa'
+console.log(a.replace(/[^W]+/g,""));
+
+// 校验金额
+const reg = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/
+const amount = "1111 "
+const res = reg.test(String(amount).trim())
+console.log(res, 'reg')

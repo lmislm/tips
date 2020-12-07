@@ -31,6 +31,7 @@ console.log(a.replace(/[^W]+/g,""));
 
 // 校验金额
 const reg = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/
+// /^-?(([1-9]\d*)|\d)(\.\d{1,2})?$/ // 金额可以为负数
 const amount = "1111 "
 const res = reg.test(String(amount).trim())
 console.log(res, 'reg')

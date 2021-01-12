@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-28 16:22:22
+ * @LastEditTime: 2021-01-11 09:54:41
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \tips\myPlugin\bundlesize-webpack-plugin\index.js
+ */
 const fs = require('fs')
 const { resolve } = require('path')
 
@@ -14,7 +22,7 @@ function formatBytes (bytes, decimals = 2) {
 		fullSizeInfo: parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 	}
 }
-module.exports = class BundlesizeWebpackPlugin {
+module.exports = class BundleSizeWebpackPlugin {
 	constructor (options) {
 		this.options = options || {
 			sizeLimit: 10

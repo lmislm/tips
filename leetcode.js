@@ -66,6 +66,40 @@ function isPalindrome(head) {
 /**
  * hammingDistance
  */
+const x = 1
+const y = 4
+
+// const toBinary = (num) => {
+//   // const numBinary = num % 2
+//   // const numBinary 
+//   let b
+//   let arr = []
+//   while (num) {
+//     num = num / 2
+//     arr.push(num % 2)
+//   }
+//   return arr
+// }
+// const n = toBinary(4)
+// console.log(n);
+
+const ham = (x, y) => {
+  let cnt = 0, num = x ^ y;
+  console.log(num, 'num')
+  while(num > 0) {
+    if (num%2 == 1) ++cnt;
+    num /= 2;
+  }
+  return cnt
+}
+
+const res = ham(1, 4)
+console.log(res, '--res===');
+// 4 % 2 = 2 - 0
+// 2 % 2 = 1 - 0
+// 1 % 2 = 0 - 1
+
+// 1 % 2 = 1 - 0
 
 const ham = (x, y) => {
   let cnt = 0, num = x ^ y;
@@ -75,3 +109,27 @@ const ham = (x, y) => {
   }
   return cnt
 }
+
+
+
+
+/**
+ * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+  let sum = 0
+  for (let i = 0; i < prices.length - 1; i++) {
+    if (prices[i] > prices[i + 1]) {
+      sum = sum + 0
+    } else {
+      sum = sum + prices[i + 1] - prices[i]
+    }
+  }
+  return sum
+};
+
+
+console.log(maxProfit([7,1,5,3,6,4]), '==')
+// console.log(maxProfit([1,2,3,4,5]), '==')

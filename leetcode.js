@@ -133,3 +133,23 @@ var maxProfit = function(prices) {
 
 console.log(maxProfit([7,1,5,3,6,4]), '==')
 // console.log(maxProfit([1,2,3,4,5]), '==')
+
+
+
+/**
+ * https://leetcode-cn.com/problems/merge-two-binary-trees/
+ * @param {TreeNode} t1
+ * @param {TreeNode} t2
+ * @return {TreeNode}
+ */
+var mergeTrees = function(t1, t2) {
+  if (head == null || head.next == null) {
+    return head;
+  }
+  t1.val = t1.val + t2.val
+  newNode.left = t1.left + t2.left
+  newNode.right = t1.right + t2.right
+  t1.left = mergeTrees(newNode.left, t1.left)
+  t1.right = mergeTrees(newNode.right, t2.right)
+  return t1
+};

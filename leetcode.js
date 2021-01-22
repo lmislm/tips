@@ -155,21 +155,31 @@ var mergeTrees = function(t1, t2) {
   return t1
 };
 
+
 /**
- * https://leetcode-cn.com/problems/merge-two-binary-trees/
- * 2021-01-20
- * @param {TreeNode} t1
- * @param {TreeNode} t2
- * @return {TreeNode}
+ * 高度差不超过 1
+ * https://leetcode-cn.com/problems/balanced-binary-tree/
+ * 2021-01-22
+ * @param {*} root 
  */
-var mergeTrees = function(t1, t2) {
-  if (head == null || head.next == null) {
-    return head;
+const isBalanced = (root) => {
+  if (root === null) return true
+  // 求树的高度, 104题
+  const treeHeight = (root) => {
+    if (root === null) return root
+    const leftHeight = treeHeight(root.left)
+    const rightHeight = treeHeight(root.right)
+    return Math.max(leftHeight, rightHeight) + 1
   }
-  t1.val = t1.val + t2.val
-  newNode.left = t1.left + t2.left
-  newNode.right = t1.right + t2.right
-  t1.left = mergeTrees(newNode.left, t1.left)
-  t1.right = mergeTrees(newNode.right, t2.right)
-  return t1
-};
+  // 求左子树和右子树高度
+  const lh = treeHeight(root.left)
+  const rh = treeHeight(root.right)
+  if (Math.abs(lh - rh) > 1) {
+    return false
+  } 
+  // 判断是否每个左右子树的高度差是1，递归求解
+  if (!isBalanced(root.left) || !isBalanced(root.right)) {
+    return false
+  }
+  return root
+}

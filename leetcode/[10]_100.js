@@ -9,7 +9,7 @@
 /**
  * 100. 相同的树
  * https://leetcode-cn.com/problems/same-tree/
- * 
+ * 2021-01-24
  * @param {TreeNode} p
  * @param {TreeNode} q
  * @return {boolean}

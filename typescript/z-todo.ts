@@ -1,0 +1,2 @@
+// T[number]
+// infer P  

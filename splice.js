@@ -1,5 +1,5 @@
-
 // https://gist.github.com/katio/08bf3f5e058b950cd957
+
 function splice( array, startIndex, numItems ){
 	try {
 	 var endIndex = startIndex + numItems;

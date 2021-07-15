@@ -23,3 +23,47 @@ Promise.resolve().then(() => {
 setTimeout(() => {
 	console.log('t2')
 }, 0)
+
+
+
+
+/**
+ * 题目2 promise async
+ */
+
+ async function async1() {
+	console.log('async1 start');
+	await async2();
+	console.log('async1 end');
+}
+async function async2() {
+	console.log('async2');
+}
+console.log('script start');
+setTimeout(function() {
+	console.log('setTimeout');
+}, 0)
+async1();
+new Promise(function(resolve) {
+	console.log('promise1');
+	resolve();
+}).then(function() {
+	console.log('promise2');
+});
+console.log('script end');
+
+
+/**
+ * 题目3
+ */
+ const promise = new Promise(async (resolve, reject) => {
+	console.log(1)
+	await resolve()
+	console.log(2)
+	})
+	
+	promise.then(() => {
+	console.log(3)
+	})
+	
+	console.log(4);

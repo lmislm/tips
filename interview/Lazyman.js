@@ -33,27 +33,23 @@
   }
   sleepFirst(time) {
     this.queue.unshift(
-      (() => {
-        return () => {
-          setTimeout(() => {
-            console.log(`等待了${time}秒 first`)
-            this._next()
-          }, time * 1000)
-        }
-      })()
+      () => {
+        setTimeout(() => {
+          console.log(`等待了${time}秒 first`)
+          this._next()
+        }, time * 1000)
+      }
     )
     return this;
   }
   sleep(time) {
     this.queue.push(
-      (() => {
-        return () => {
-          setTimeout(() => {
-            console.log(`等待了${time}秒`)
-            this._next()
-          }, time * 1000)
-        }
-      })()
+      () => {
+        setTimeout(() => {
+          console.log(`等待了${time}秒`)
+          this._next()
+        }, time * 1000)
+      }
     )
     return this
   }

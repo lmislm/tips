@@ -60,9 +60,8 @@ Function.prototype._bind1 = function (ctx) {
 // // 可以new bind
 Function.prototype._bind = function(ctx) {
 	const args = [...arguments].slice(1)
-	console.log(ctx)
 	let fNOP = function () {}
-	// this指向实例，
+	// this指向实例
 	ctx = this instanceof fNOP ? this : ctx
 	let fBound = (...bindArgs) => {
 		return this.apply(ctx, [...args, ...bindArgs])

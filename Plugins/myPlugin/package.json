@@ -1,0 +1,19 @@
+{
+  "name": "BundleSizeWebpackPlugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bundlesize-webpack-plugin",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "lmislm",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.51.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.8.0"
+  }
+}

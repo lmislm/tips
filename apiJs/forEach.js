@@ -7,7 +7,18 @@
 // }
 // test()
 // console.log('Done');
+if(!Array.prototype.forEach) {
+  Array.prototype.forEach = function(fn, context) {
+      var context = arguments[1];
+      if(typeof fn !== "function") {
+          throw new TypeError(fn + "is not a function");
+      }
 
+      for(var i = 0; i < this.length; i++) {
+          fn.call(context, this[i], i, this);
+      }
+  };
+}
 const waitFor = (ms) => new Promise(r => setTimeout(r, ms));
 [1, 2, 3].forEach(async (num) => {
   await waitFor(1000);

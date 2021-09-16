@@ -1,21 +1,20 @@
-
-function FirstPlugin (options) {}
-FirstPlugin.prototype.apply = (compiler) {
-	compiler.plugin = ('emit', (compilation, callback) => {
-		let fileList = 'In'
-		for (let filename in compilation.assets) {
-			fileList += ('_ ' + filename + '\n')
-		}
-		compilation.assets['fileList.md'] = {
-			source: () => {
-				return fileList
+module.exports = class FileListPlugin {
+	constructor(){
+		this.filename = 'FileList.md'
+	}
+	apply(compiler) {
+		compiler.hooks.emit.tapAsync('FileListPlugin', (compilation, cb) => {
+			let fileLen = Object.keys(compilation.assets).length
+			let content = `# ${fileLen} file emit by webpack plugin\n\n`
+			for (let fileName in compilation.assets){
+				content += `+ ${fileName}\n`
 			}
-			size: () => {
-				return fileList.length
-			}
-		}
-		callback()
-	})
+			// output
+			compilation.assets[this.filename] = {
+				source: function() { return content },
+				size: function() { return content.length }
+			},
+			cb(),
+		})
+	}
 }
-
-module.exports = FirstPlugin

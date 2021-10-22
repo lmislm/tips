@@ -3,7 +3,7 @@ JSON.parse(JSON.stringify(obj))
 // ES6
 Object.assign({}, obj)
 {...obj}
-// deepClone
+// deepClone deepCopy
 function deepClone (val) {
 	const isPlainObject = (val) => {
 		return Object.prototype.toString.call(val) === '[object object]'

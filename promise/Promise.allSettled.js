@@ -44,7 +44,7 @@ MyPromise.allSettled = function (promises) {
 		}
 		function resolvePromise(index, value) {
 			// 判断传入的是否是 promise 类型
-			if(value instanceof MyPromise) { 
+			if(value instanceof MyPromise) {
 				const then = value.then
 				then.call(value, function(val) {
 					args[index] = { status: 'fulfilled', value: val}

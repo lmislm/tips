@@ -79,3 +79,18 @@ console.log(res, res2, 'res')
 
 // const res = new _bind()
 // console.log(res, 'res')
+
+
+const _bind = (ctx, ...args)  {
+  // const args = [...arguments].slice(1)
+  return (...bindArgs) => {
+    return this.apply(ctx, [...args, ...bindArgs])
+  }
+}
+Function.prototype._bind = _bind
+
+
+/**
+ * 来源：
+ * https://github.com/mqyqingfeng/Blog/issues/11
+ */

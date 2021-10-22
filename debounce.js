@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-12-09 16:06:05
- * @LastEditTime: 2021-01-12 10:22:58
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \tips\debounce.js
- */
 const debounce = (fn, wait) => {
 	let timer = null
 	const nowTime = Date.now()
@@ -17,20 +9,6 @@ const debounce = (fn, wait) => {
 	}
 }
 
-const throttle = (fn, wait) => {
-	let timer = null
-	const nowTime = Date.now()
-	// const 
-	let flag = false
-	return (...arg) => {
-		if (flag) return
-		flag = true
-		setTimeout(() => {
-			flag = false
-			timer = fn.apply(this, ...arg)
-		}, wait)
-	}
-}
 
 /**
  * @param {Function} func

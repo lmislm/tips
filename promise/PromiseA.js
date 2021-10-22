@@ -1,7 +1,7 @@
 class PromiseA {
 	constructor(fn) {
 			this.status = 'pending';
-			this.value = null;
+			this.value = null; 
 			this.error = null;
 
 			this.resolveArr = [];

@@ -82,3 +82,29 @@ compiler.plugin("emit", function (compilation, callback) {
 compiler.plugin("after-emit", function (compilation) {
   console.log("The compliation has aleardy emitted");
 });
+
+/**
+ * webpack 构建主要钩子
+ * 
+ * entry-option: 入口
+ * compile： 编译
+ * make：分析模块的依赖
+ * build-module：构建模块，调用loader处理
+ * normal-build-loader：编译构建后的module生成ast树
+ * program：处理生成的ast后面的依赖收集
+ * seal：封装模块
+ * emit：生成文件
+ */
+/**
+  entry-option：初始化options
+  run：开始编译
+  make：从entry开始递归的分析依赖，对每个依赖模块进行build
+  before-resolve - after-resolve： 对其中一个模块位置进行解析
+  build-module ：开始构建 (build) 这个module,这里将使用文件对应的loader加载
+  normal-module-loader：对用loader加载完成的module(是一段js代码)进行编译,用 acorn 编译,生成ast抽象语法树。
+  program： 开始对ast进行遍历，当遇到require等一些调用表达式时，触发 call require 事件的handler执行，收集依赖，并。如：AMDRequireDependenciesBlockParserPlugin等
+  seal： 所有依赖build完成，下面将开始对chunk进行优化，比如合并,抽取公共模块,加hash
+  optimize-chunk-assets：压缩代码，插件 UglifyJsPlugin 就放在这个阶段
+  bootstrap： 生成启动代码
+  emit： 把各个chunk输出到结果文件
+ */
